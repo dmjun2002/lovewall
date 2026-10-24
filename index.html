@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>예배지원 기록지</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="love_ivy_logo_icon_512.png">
+<link rel="apple-touch-icon" href="love_ivy_logo_icon_512.png">
+<meta name="theme-color" content="#5A9A4A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="예배지원 기록지">
+<script>
+const APP_URL = "https://script.google.com/macros/s/AKfycbxJwaRTSBsUdMKCVaqZ9sCcEQD-Ugpj-uS9hqTp3ZuXPQllCEc6dbq_L3Qa1OXvDNzO/exec";
+if (matchMedia("(display-mode: standalone)").matches || navigator.standalone ||
+    new URLSearchParams(location.search).get("source") === "homescreen") location.replace(APP_URL);
+</script>
+<style>
+body{margin:0;background:#F6FAF2;color:#24331F;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.6;word-break:keep-all}
+main{max-width:480px;margin:0 auto;padding:32px 16px;text-align:center}
+img{width:120px;height:120px;border-radius:26px;box-shadow:0 6px 20px rgba(40,70,30,.18)}
+h1{font-size:24px;margin:16px 0 24px}
+a,button{display:block;width:100%;padding:16px;border-radius:14px;font-size:17px;font-weight:700;text-decoration:none;box-sizing:border-box;font-family:inherit}
+#install{display:none;background:#5A9A4A;color:#fff;border:0;margin-bottom:12px}
+a{border:2px solid #5A9A4A;color:#5A9A4A}
+ol{text-align:left;background:#fff;border:1px solid #DDE8D5;border-radius:16px;padding:20px 20px 20px 40px;margin-top:24px}
+</style>
+</head>
+<body>
+<main>
+  <img src="love_ivy_logo_icon_512.png" alt="사랑의 담쟁이">
+  <h1>주간 예배지원 기록지</h1>
+  <button id="install">📲 홈 화면에 앱으로 추가</button>
+  <a id="open" href="#">기록지 바로 열기</a>
+  <ol>
+    <li>이 페이지를 <b>크롬</b>(아이폰은 <b>사파리</b>)으로 엽니다.</li>
+    <li>갤럭시: 위 초록 버튼을 누르거나, <b>⋮ → 설치 및 바로가기 만들기 → 설치</b></li>
+    <li>아이폰: 아래 <b>공유(□↑) → 홈 화면에 추가</b></li>
+    <li>홈 화면의 <b>사랑의 담쟁이</b> 아이콘을 누르면 기록지가 열립니다.</li>
+  </ol>
+</main>
+<script>
+document.getElementById("open").href = APP_URL;
+let d; const b = document.getElementById("install");
+addEventListener("beforeinstallprompt", e => { e.preventDefault(); d = e; b.style.display = "block"; });
+b.onclick = async () => { if (d) { d.prompt(); await d.userChoice; d = null; b.style.display = "none"; } };
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
+</script>
+</body>
+</html>
