@@ -1,0 +1,12 @@
+{
+  "name": "주간 예배지원 기록지",
+  "short_name": "예배지원 기록지",
+  "start_url": "./?source=homescreen",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#5A9A4A",
+  "icons": [
+    { "src": "love_ivy_logo_icon_512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
